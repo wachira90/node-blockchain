@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	 crossorigin="anonymous" />
+
+	<title>Example BlockChain</title>
+</head>
+
+<body>
+	<div class="container">
+		<h2 class="text-center">Example BlockChain By Wachira90@yahoo.com</h2>
+
+		<h3>
+			<a href="https://block-chain--wachiraduangdee.repl.co/api/genblock" target="_blank">API => /api/genblock</a>
+		</h3>
+
+		<div class="sh"></div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.4.1.js">
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	 crossorigin="anonymous">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	 crossorigin="anonymous">
+	</script>
+	<script>
+		$(function() {
+        var h = location.href + "api/genblock";
+        console.log(h);
+        $.getJSON(h , (json) => {
+          $.each(json, (i, dat) => {
+            console.log(dat);
+            let str = `<ul class="list-group">\
+            <li class="list-group-item active"><b>Block</b> # ${dat.index}</li>\
+            <li class="list-group-item"><b>Time</b> : ${dat.timestamp}</li>\
+            <li class="list-group-item"><b>Data</b> : ${dat.data}</li>\
+            <li class="list-group-item"><b>PrevHash</b> : ${dat.prevHash}</li>\
+            <li class="list-group-item"><b>ThisHash</b> : ${dat.thisHash}</li></ul><br>`;
+            $('div.sh').append(str);
+          });
+        });
+        console.log("load ok ");
+      });
+	</script>
+</body>
+
+</html>

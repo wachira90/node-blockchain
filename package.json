@@ -1,0 +1,14 @@
+{
+  "name": "blockchain",
+  "version": "0.0.1",
+  "description": "blockchain by wachira",
+  "main": "app.js",
+  "scripts": {},
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "sha256": "^0.2.0",
+    "express": "latest",
+    "body-parser": "latest"
+  }
+}
